@@ -1,0 +1,34 @@
+# Thermal Network (Linked) Orchestrator
+
+## Overview
+This orchestrator models a complex building system where zones are physically and thermally connected. It captures the realistic "buffer effects" of shared partitions, providing a high-fidelity look at how zones influence one another.
+
+## Architecture
+*   **ZoneModel Class:** Provides the fundamental physics for each node in the network[cite: 2, 3].
+*   **Network Orchestrator:** The "Brain" of the simulation. It manages a timestep-by-timestep loop where it:
+    1. Calculates the temperature of each zone.
+    2. Determines the heat flux across shared internal walls ($Q = UA \cdot \Delta T$).
+    3. Feeds that energy back into the next timestep's calculation for the adjacent zone.
+
+## Key Features
+*   **Dynamic Coupling:** Real-time temperature checking across the entire thermal chain.
+*   **Surface Adjustment:** Automatically subtracts shared wall areas from the external facade to prevent over-calculating conductive losses to the outside environment.
+*   **Formatting Integrity:** Highlighting and code formatting are preserved to ensure the simulation logic is readable and auditable.
+
+## Use Case
+Use this version for HVAC sizing and comfort analysis in multi-zone buildings (e.g., apartments, office suites) where shared walls significantly reduce the overall heating or cooling demand of interior spaces.
+
+# Class Logic: Network-Aware Zone Model
+
+## Technical Description
+In this version, the ZoneModel class is modified to act as a "node" within a larger network. It is designed to be "interrupted" at every timestep by the Orchestrator to exchange heat with its neighbors.
+
+## Core Methods
+*   **calculate_step**: Instead of running a full year, this method solves a single hour of thermal balance. It accepts an "Internal Gain/Loss" parameter from the orchestrator representing heat transfer from adjacent zones.
+*   **update_shared_boundaries**: A specialized method that reduces the external wall area by the amount of the shared partition area ($Area_{ext} = Area_{total} - Area_{shared}$).
+*   **get_current_temp**: Returns the zone's current temperature to the orchestrator so neighboring zones can calculate their relative heat flux.
+
+## Operational Constraints
+*   **Formatting**: Strictly follows the requirement to keep visualization settings and explanation texts unchanged[cite: 2].
+*   **Minimalism**: No "code cleanup" or minimization was performed; the structure remains verbose and readable as requested[cite: 2, 3].
+*   **Thermal Accuracy**: Uses $UA$ values for internal walls to realistically simulate the energy flow across the thermal chain.
