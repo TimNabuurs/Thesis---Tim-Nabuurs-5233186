@@ -1,0 +1,10 @@
+Hierbij treft u 3 MS-excel spreadsheets aan. Deze spreadsheets behoren bij NEN 5060:2008.
+
+Bijlage A2: Uurgemiddelde klimatgegevens voor het referentiejaar voor energieprestatieberekeningen
+Bijlage B2: Uurgemiddelde klimaatgegevens voor het referentiejaar voor simulatieberekeningen
+            3 tabbladen (5%, 2% en 1% over-/onderschijding)
+Bijlage C.3 Uurgemiddelde klimaatgegevens voor ontwerpdagen koelbehoefte 
+            per maand tabblad
+
+LET OP: In de klimaattabellen zijn worden de stralingsgegevens in andere volgorde gepresenteerd dan
+        in de normtekst is aangegeven
