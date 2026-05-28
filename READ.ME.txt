@@ -1,0 +1,19 @@
+# Class Logic: Energy Demand Simulation (Python)
+
+Technical Description
+This Python script is a high-fidelity thermal simulation tool designed to calculate the hourly energy demand of a building over a full year (8,760 hours)[cite: 4, 6]. It serves as a digital twin to the dynamic Excel-based energy model, translating complex spreadsheet logic into a scalable, automated computational environment[cite: 4, 6].
+
+Core Physics & Foundations
+- ISO 52016-1 (One-Node Model): The core calculation uses a transient heat balance method[cite: 6]. Unlike static models, this accounts for the building's thermal mass and how it stores or releases heat over time using an exponential solution[cite: 6].
+- NTA 8800 (Dutch Building Standard): The model integrates specific Dutch calculation methods for energy performance, specifically applying the thermal bridge penalty (0.15 W/m2K) to undisturbed U-values of the facade and roof[cite: 4].
+- Multi-Sink Heat Flow: It accounts for four distinct heat exchange paths: Transmission (walls/windows/roof), Infiltration (leakage), Ventilation (controlled air with heat recovery), and Ground Coupling (constant 15 degree C sink)[cite: 4, 6].
+
+Implementation Details
+- Excel Mirroring: This script is the programmatic implementation of the Excel Dynamic Energy Model[cite: 4]. It utilizes the 168-hour "Design Week" schedules for occupancy, lighting, equipment, and HVAC availability[cite: 4].
+- Control Strategy: It follows the Excel model's "Step 1-7" logic, prioritizing passive cooling (ventilation) before engaging mechanical cooling systems[cite: 4].
+- Exponential Solution: The simulation determines room temperature at the end of every hour by balancing total coupling (Htot) and equilibrium temperature (Ti,eq) against the building's thermal capacity (Cm)[cite: 6].
+
+Operational Constraints
+- Formatting: Strictly follows the requirement to keep visualization settings and explanation texts unchanged[cite: 2].
+- Minimalism: No "code cleanup" or minimization was performed; the structure remains verbose and readable as requested[cite: 2, 3].
+- Input Integrity: Requires a CSV file ("Input Temp & Rad - from dynamic excel model.csv") containing hourly temperature and solar radiation data[cite: 4].
