@@ -1,0 +1,6 @@
+Name,FloorArea,SpecCapacity
+Zone1,455.0,450
+Zone2,565.0,450
+Zone3,685.0,450
+Zone4,730.0,450
+Zone5,480.0,450
